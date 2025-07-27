@@ -1,0 +1,7 @@
+ID,AlgorithmName,MazeRows,MazeCols,ExecutionTimeMs,VisitedCells,SolutionPathLength,SolutionFound,Timestamp
+1,BFS,5,5,3875,25,15,true,2025-07-27 11:19:57
+2,DFS,5,5,2301,12,9,true,2025-07-27 11:20:11
+3,Recursivo (2 dir),5,5,668,4,3,true,2025-07-27 11:20:32
+4,Recursivo (4 dir),5,5,5801,24,11,true,2025-07-27 11:20:51
+5,Recursivo (4 dir + BT),5,5,2281,13,11,true,2025-07-27 11:21:07
+6,BFS,5,5,3704,25,11,true,2025-07-27 11:22:03
