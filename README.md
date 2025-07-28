@@ -303,8 +303,10 @@ jar cfm MazeSolver.jar MANIFEST.MF -C build .
 ## 🪪 Conclusiones
 
 ### - Daniel Sanches:
-mucho texto mucho texto
 
+El uso de clases DAO para manejar datos persistentes en archivos CSV fue una decisión acertada, ya que permitió medir y comparar de forma objetiva los tiempos de ejecución de cada algoritmo. Esta funcionalidad 
+
+brindó un valor agregado al sistema al permitir una evaluación cuantitativa de la eficiencia algorítmica, fomentando una visión analítica en el desarrollo de software.
 ### - Daniel Durán:
 El proyecto de resolución de laberintos nos permitió aplicar 
 conocimientos previos en Programación Orientada a Objetos, 
