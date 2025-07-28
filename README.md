@@ -322,8 +322,7 @@ mucho texto mucho texto
 
 ### - Nelson Villalta:
 
-Mediante la comparación practica de diferentes tipos de algoritmo como BFS, DFS y back tracking, se logró evidenciar que la elección del algoritmo adecuado depende del contexto del laberinto. Este análisis aporto una compresión más profunda acerca y sobre el rendimiento y la aplicabilidad de cada estrategia.
----
+
 
 *¡Disfruta resolviendo laberintos con estilo Minecraft!* 🎮
 
