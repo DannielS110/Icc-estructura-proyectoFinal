@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Icc-estructura-proyectoFinal.iml" filepath="$PROJECT_DIR$/Icc-estructura-proyectoFinal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nbproject/nbproject.iml" filepath="$PROJECT_DIR$/nbproject/nbproject.iml" />
+    </modules>
+  </component>
+</project>
