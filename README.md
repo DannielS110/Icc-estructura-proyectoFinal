@@ -1,4 +1,4 @@
-![img_7.png](img_7.png)
+![img.png](src/images/CaratulaTF.png)
 ---
 # Resolvedor de Laberintos - Proyecto Final
 
@@ -22,9 +22,11 @@ El laberinto se representa mediante una matriz donde cada celda puede ser transi
 - Patrón de diseño: MVC (Modelo-Vista-Controlador)
 - Almacenamiento de datos: CSV para tiempos de ejecución
 
-### Diagrama UML
+---
+## 📰 Diagrama UML
 [Inserta aquí tu Diagrama UML explicando las clases DAO y Maze]
 
+---
 ### Clases DAO
 Las clases DAO (Data Access Object) gestionan la interacción entre la lógica del negocio y la persistencia de datos. En este proyecto, las clases DAO manejan el almacenamiento y recuperación del laberinto, tiempos de ejecución y resultados obtenidos:
 
@@ -49,45 +51,116 @@ Se implementó una interfaz gráfica simple utilizando Swing, permitiendo al usu
 - Seleccionar los puntos inicial y final.
 - Visualizar gráficamente la ruta óptima encontrada.
 
-### Ejemplo de Funcionamiento
-![img.png](img.png)
 ---
-![img_1.png](img_1.png)
----
-![img_2.png](img_2.png)
----
-![img_3.png](img_3.png)
----
-![img_4.png](img_4.png)
----
-![img_5.png](img_5.png)
----
-![img_6.png](img_6.png)
 
-### Código Ejemplo
+## 🖼️ Ejemplo de Funcionamiento
+![img.png](src/images/img.png)
+---
+![img_1.png](src/images/img_1.png)
+---
+![img_2.png](src/images/img_2.png)
+---
+![img_3.png](src/images/img_3.png)
+---
+![img_4.png](src/images/img_4.png)
+---
+![img_5.png](src/images/img_5.png)
+---
+![img_6.png](src/images/img_6.png)
+
+---
+## ♨️ Código Ejemplo
 ```java
 // Ejemplo de método BFS
-public List<Point> bfsSolver(Point start, Point end, boolean[][] maze) {
-    Queue<Point> queue = new LinkedList<>();
-    queue.add(start);
-    boolean[][] visited = new boolean[maze.length][maze[0].length];
-    Map<Point, Point> path = new HashMap<>();
+public class BFS extends MazeSolverWorker {
+    public BFS(Maze maze, MazeController mazeController) {
+        super(maze, mazeController);
+    }
 
-    while (!queue.isEmpty()) {
-        Point current = queue.poll();
-        if (current.equals(end)) {
-            return reconstructPath(path, start, end);
+    @Override
+    protected Boolean doInBackground() throws Exception {
+        Cell current;
+        Cell end = maze.getEndingCell();
+        Queue<Cell> searchQueue = new LinkedList<>();
+        searchQueue.add(maze.getStartingCell());
+
+        while (!searchQueue.isEmpty()) {
+            current = searchQueue.remove();
+            current.setCurrent(true);
+            current.setVisitState(CellVisitState.VISITED);
+
+            if (current == end) { 
+                maze.setGoal(current);
+                return true;
+            }
+
+            List<Cell> unvisitedNeighbors = unvisitedNeighbors(current);
+
+            for (Cell neighbor : unvisitedNeighbors) {
+                searchQueue.add(neighbor);
+                neighbor.setVisitState(CellVisitState.VISITING);
+                neighbor.setParent(current);
+            }
+
+            publish(maze);
+            
+            Thread.sleep(mazeController.getAnimationSpeed());
+
+            current.setCurrent(false);
         }
 
-        for (Point neighbor : getNeighbors(current, maze)) {
-            if (!visited[neighbor.x][neighbor.y]) {
-                queue.add(neighbor);
-                visited[neighbor.x][neighbor.y] = true;
-                path.put(neighbor, current);
-            }
+        return false;
+    }
+
+    @Override
+    protected void process(List<Maze> chunks) {
+        for (Maze maze : chunks) {
+            mazeController.repaintMaze(maze);
         }
     }
-    return Collections.emptyList();
+
+    @Override
+    protected void done() {
+        Boolean status;
+
+        try {
+            status = get();
+
+            if (status) {
+                mazeController.solveMazeSuccess();
+            } else {
+                mazeController.reset();
+            }
+        } catch (CancellationException ignore) {
+        } catch (Exception e) {
+            mazeController.reset();
+        }
+    }
+    
+    private List<Cell> unvisitedNeighbors(Cell current) {
+        Cell neighbor;
+        List<Cell> unvisitedNeighbors = new ArrayList<>();
+        int currRow = current.row();
+        int currCol = current.col();
+        int newRow, newCol;
+
+        for (Direction direction : Direction.values()) {
+            newCol = currCol + direction.dx;
+            newRow = currRow + direction.dy;
+
+            if (!maze.inBounds(newRow, newCol)) {
+                continue;
+            }
+
+            neighbor = maze.mazeCell(newRow, newCol);
+
+            if (current.wallMissing(direction) && neighbor.unvisited()) {
+                unvisitedNeighbors.add(neighbor);
+            }
+        }
+
+        return unvisitedNeighbors;
+    }
 }
 ```
 
@@ -110,7 +183,7 @@ java -cp "src;lib/*" MazeSolver
 ```
 Maze-Solver/
 ├── src/
-│   ├── controller/          # Controladores MVC
+│   ├── controller/         # Controladores MVC
 │   ├── model/              # Modelos y algoritmos
 │   ├── view/               # Interfaces gráficas
 │   ├── dao/                # Acceso a datos
@@ -225,10 +298,32 @@ jar cfm MazeSolver.jar MANIFEST.MF -C build .
 - **Ventaja:** Mejor rendimiento
 - **Desventaja:** Más complejo
 
-## 🎯 Proyecto Final
+---
 
+## 🪪 Conclusiones
 
+### - Daniel Sanches:
+mucho texto mucho texto
+
+### - Daniel Durán:
+El proyecto de resolución de laberintos nos permitió aplicar 
+conocimientos previos en Programación Orientada a Objetos, 
+Programación y Base de Datos III y Estructura de Datos 
+implementando y compararon múltiples algoritmos de búsqueda 
+(DFS, BFS, recursivo con 2 y 4 direcciones, backtracking), 
+demostrando sus diferencias en complejidad, rendimiento y 
+eficiencia según el caso de prueba. Reforzando el uso de 
+estructura de datos como listas, colas y pilas
+
+### - Joey Diaz:
+mucho texto mucho texto
+
+### - Nelson Villalta:
+
+mucho texto mucho texto
 
 ---
 
-*¡Disfruta resolviendo laberintos con estilo Minecraft!* 🎮 
+*¡Disfruta resolviendo laberintos con estilo Minecraft!* 🎮
+
+© Sanchez / Durán / Diaz / Villalta | 2025
