@@ -1,3 +1,7 @@
+
+<img width="1414" height="2000" alt="Caratula UPS" src="https://github.com/user-attachments/assets/88a8528c-f371-4d4b-b3fe-8effbe2e6f90" />
+
+
 ## Getting Started
 
 Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
