@@ -340,6 +340,6 @@ rendimiento y la aplicabilidad de cada estrategia.
 
 
 
-*¡Disfruta resolviendo laberintos con estilo Minecraft!* 🎮
+*¡Disfruta resolviendo laberintos!* 🎮
 
 © Sanchez / Durán / Diaz / Villalta | 2025
