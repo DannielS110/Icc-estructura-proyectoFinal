@@ -24,7 +24,11 @@ El laberinto se representa mediante una matriz donde cada celda puede ser transi
 
 ---
 ## 📰 Diagrama UML
-[Inserta aquí tu Diagrama UML explicando las clases DAO y Maze]
+### - Diagrama UML Proyecto
+![img_1.png](src/images/DiagramaUMLProyecto.png)
+
+### - Diagrama UML clases DAO y MAZE
+![img_2.png](src/images/DiagramaUMLMAZEDANO.png)
 
 ---
 ### Clases DAO
