@@ -304,8 +304,9 @@ jar cfm MazeSolver.jar MANIFEST.MF -C build .
 
 ### - Daniel Sanches:
 
-El uso de clases DAO para manejar datos persistentes en archivos CSV fue una decisión acertada, ya que permitió medir y comparar de forma objetiva los tiempos de ejecución de cada algoritmo. Esta funcionalidad 
-
+El uso de clases DAO para manejar datos persistentes en archivos CSV 
+fue una decisión acertada, ya que permitió medir y comparar de forma 
+objetiva los tiempos de ejecución de cada algoritmo. Esta funcionalidad
 brindó un valor agregado al sistema al permitir una evaluación cuantitativa de la eficiencia algorítmica, fomentando una visión analítica en el desarrollo de software.
 ### - Daniel Durán:
 El proyecto de resolución de laberintos nos permitió aplicar 
@@ -318,9 +319,20 @@ eficiencia según el caso de prueba. Reforzando el uso de
 estructura de datos como listas, colas y pilas
 
 ### - Joey Diaz:
-mucho texto mucho texto
+Este proyecto nos permitió aplicar estructuras de datos como pilas, 
+colas y listas para resolver el clásico problema del laberinto, 
+utilizando los algoritmos BFS y DFS. Más allá de implementar código, 
+comprendimos mejor cómo funcionan estos métodos de búsqueda en grafos 
+y reforzamos el trabajo en equipo usando herramientas como Git. 
+En resumen, fue una experiencia que conectó teoría y práctica de 
+forma clara y útil.
 
 ### - Nelson Villalta:
+Mediante la comparación practica de diferentes tipos de algoritmo 
+como BFS, DFS y back tracking, se logró evidenciar que la elección 
+del algoritmo adecuado depende del contexto del laberinto. 
+Este análisis aporto una compresión más profunda acerca y sobre el 
+rendimiento y la aplicabilidad de cada estrategia.
 
 
 
